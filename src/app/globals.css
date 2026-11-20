@@ -1,0 +1,126 @@
+@import "tailwindcss";
+
+/* Dark mode điều khiển bằng class `.dark` trên <html> */
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --bg: #ffffff;
+  --fg: #0a0a0a;
+  --muted: #5c5c5c;
+  --line: rgba(0, 0, 0, 0.08);
+
+  /* Liquid glass */
+  --glass-bg: rgba(255, 255, 255, 0.45);
+  --glass-border: rgba(255, 255, 255, 0.75);
+  --glass-edge: rgba(0, 0, 0, 0.06);
+  --glass-highlight: rgba(255, 255, 255, 0.95);
+  --glass-shadow: 0 10px 40px -12px rgba(0, 0, 0, 0.18);
+  --blob-a: rgba(0, 0, 0, 0.16);
+  --blob-b: rgba(0, 0, 0, 0.09);
+}
+
+.dark {
+  --bg: #000000;
+  --fg: #f5f5f5;
+  --muted: #a3a3a3;
+  --line: rgba(255, 255, 255, 0.1);
+
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.18);
+  --glass-edge: rgba(255, 255, 255, 0.04);
+  --glass-highlight: rgba(255, 255, 255, 0.35);
+  --glass-shadow: 0 10px 40px -12px rgba(0, 0, 0, 0.9);
+  --blob-a: rgba(255, 255, 255, 0.2);
+  --blob-b: rgba(255, 255, 255, 0.1);
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --font-sans: var(--font-sans-face);
+  --font-mono: var(--font-mono-face);
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: light;
+}
+html.dark {
+  color-scheme: dark;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* ---------- Liquid glass ---------- */
+.glass {
+  position: relative;
+  isolation: isolate;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  box-shadow:
+    var(--glass-shadow),
+    inset 0 1px 0 0 var(--glass-highlight),
+    inset 0 -1px 0 0 var(--glass-edge),
+    inset 0 0 20px 0 var(--glass-edge);
+  -webkit-backdrop-filter: blur(18px) saturate(180%);
+  backdrop-filter: blur(18px) saturate(180%);
+  transition: transform 0.35s ease, box-shadow 0.35s ease, background-color 0.4s ease;
+}
+
+/* Vệt phản sáng chéo trên mặt kính */
+.glass::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: -1;
+  background:
+    linear-gradient(135deg, var(--glass-highlight) 0%, transparent 28%),
+    linear-gradient(315deg, var(--glass-edge) 0%, transparent 40%);
+  opacity: 0.55;
+}
+
+/* Viền khúc xạ mỏng quanh mép kính */
+.glass::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  padding: 1px;
+  background: linear-gradient(160deg, var(--glass-highlight), transparent 35%, transparent 65%, var(--glass-highlight));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0.6;
+}
+
+.glass-hover:hover {
+  transform: translateY(-4px);
+}
+
+/* Các khối mờ phía sau để kính có thứ "khúc xạ" */
+.blob {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(70px);
+  animation: float 18s ease-in-out infinite;
+}
+@keyframes float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(40px, -30px) scale(1.08); }
+  66% { transform: translate(-30px, 25px) scale(0.95); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .blob { animation: none; }
+  .glass, .glass-hover:hover { transition: none; transform: none; }
+}
