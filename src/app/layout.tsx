@@ -24,7 +24,8 @@ export const metadata: Metadata = {
     description: siteDescription,
     siteName: profile.name,
     locale: "vi_VN",
-    images: [{ url: profile.avatar, alt: profile.name }],
+    // Ghi rõ kích thước ảnh để Facebook/Zalo hiện ảnh ngay từ lần đọc đầu tiên
+    images: [{ url: profile.avatar, width: 640, height: 640, type: "image/jpeg", alt: profile.name }],
   },
   twitter: {
     card: "summary",
