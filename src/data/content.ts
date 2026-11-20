@@ -13,7 +13,7 @@ export const profile = {
   initials: "TY",
   // Ảnh đại diện nằm trong thư mục public/. File trong public/ được phục vụ ở gốc trang, nên đường dẫn là "/avatar.jpg".
   avatar: "/avatar.jpg",
-  role: { vi: "Sinh viên Kỹ thuật Phần mềm · Định hướng Cloud Engineer", en: "Software Engineering Student · Aspiring Cloud Engineer" } as Text,
+  role: { vi: "Backend & Cloud Engineer", en: "Backend & Cloud Engineer" } as Text,
   tagline: {
     vi: "Biến ý tưởng thành sản phẩm chạy được, luôn bắt đầu từ góc nhìn của người dùng.",
     en: "I turn ideas into working products, always starting from the user's point of view.",
@@ -39,7 +39,7 @@ export const about: { paragraphs: Text[]; facts: { label: Text; value: string }[
     },
   ],
   facts: [
-    { label: { vi: "GPA (thang 4) · 8.2/10", en: "GPA (4.0 scale) · 8.2/10" }, value: "3.5" },
+    { label: { vi: "GPA / 4.0", en: "GPA / 4.0" }, value: "3.5" },
     { label: { vi: "Học bổng toàn khóa", en: "Full-tuition scholarship" }, value: "100%" },
     { label: { vi: "Google Cloud Skill Badges", en: "Google Cloud Skill Badges" }, value: "17" },
   ],
@@ -75,22 +75,32 @@ export const projects: { title: Text; description: Text; tags: string[]; demo: s
   {
     title: "LegacyVault",
     description: {
-      vi: "Nền tảng quản lý di sản số theo cơ chế Dead Man's Switch: chủ sở hữu cất tài sản số vào kho mã hóa và check-in định kỳ; nếu ngừng check-in, hệ thống bàn giao cho người thừa kế qua các bước xác minh. Backend Spring Boot + Spring Data JPA theo kiến trúc phân lớp (controller, service, repository, DTO), xác thực JWT với access/refresh token, MySQL. Docker Compose cho môi trường local, GitHub Actions CI kiểm tra mọi push và pull request, chạy thật trên Microsoft Azure. Dự án nhóm môn SWP391.",
-      en: "A digital legacy platform built on a Dead Man's Switch: owners store digital assets in an encrypted vault and check in periodically; if they stop, the system hands the assets to beneficiaries through verification steps. Spring Boot + Spring Data JPA backend in a layered architecture (controller, service, repository, DTO), JWT auth with access/refresh tokens, MySQL. Docker Compose for local setup, GitHub Actions CI on every push and pull request, running live on Microsoft Azure. Team project for SWP391.",
+      vi: "Nền tảng quản lý di sản số theo cơ chế Dead Man's Switch: chủ sở hữu cất tài sản số vào kho mã hóa, nếu ngừng check-in thì hệ thống tự bàn giao cho người thừa kế qua các bước xác minh. Dự án nhóm môn SWP391, đã chạy thật trên Azure.",
+      en: "A digital legacy platform built on a Dead Man's Switch: owners store digital assets in an encrypted vault, and if they stop checking in, the system hands them over to beneficiaries through verified steps. Team project for SWP391, running live on Azure.",
     },
-    tags: ["Java", "Spring Boot", "Spring Data JPA", "JWT", "MySQL", "Docker Compose", "GitHub Actions", "Azure", "React"],
+    tags: ["Spring Boot", "Java", "React", "MySQL", "Docker", "Azure"],
     demo: "https://legacyvault.codes",
     repo: "https://github.com/azerc18/legacy-vault",
   },
   {
     title: { vi: "Độ tin cậy của unit test do LLM sinh", en: "Reliability of LLM-generated unit tests" },
     description: {
-      vi: "Nghiên cứu nhóm (SWT301): unit test do mô hình ngôn ngữ lớn viết có đáng tin không? So sánh 6 LLM trên 646 hàm Java và Python. Mình thiết kế pipeline tự động 3 khâu: (1) yêu cầu LLM sinh test, (2) chạy test và đo coverage bằng JUnit/JaCoCo cho Java, pytest/coverage.py cho Python, (3) tổng hợp. Phân tích 3.876 kết quả bằng pandas và SciPy để so sánh các mô hình theo thống kê.",
-      en: "Team research (SWT301): how reliable are unit tests written by large language models? Compared 6 LLMs on 646 Java and Python functions. I designed a 3-stage automated pipeline: (1) prompt each LLM to generate tests, (2) run them and measure coverage with JUnit/JaCoCo for Java and pytest/coverage.py for Python, (3) aggregate. Analyzed 3,876 results with pandas and SciPy to compare models statistically.",
+      vi: "Nghiên cứu nhóm (SWT301) so sánh 6 mô hình LLM trên 646 hàm Java/Python. Mình thiết kế pipeline 3 khâu (sinh test, chạy test và đo coverage, tổng hợp) và phân tích 3.876 kết quả bằng pandas và SciPy.",
+      en: "Team research (SWT301) comparing 6 LLMs on 646 Java/Python functions. I designed a 3-stage pipeline (generate tests, run them and measure coverage, aggregate) and analyzed 3,876 results with pandas and SciPy.",
     },
-    tags: ["LLM", "JUnit", "JaCoCo", "pytest", "coverage.py", "pandas", "SciPy"],
+    tags: ["Python", "pandas", "JUnit", "pytest", "LLM"],
     demo: "",
     repo: "https://github.com/Toysideconqueror/llm-unit-test-reliability",
+  },
+  {
+    title: { vi: "SLR: truy vết yêu cầu – mã nguồn, LLM so với IR", en: "SLR: requirements-to-code traceability, LLM vs IR" },
+    description: {
+      vi: "Tổng quan tài liệu có hệ thống (SWR302), mình là nhóm trưởng: xây dựng search string và tiêu chí chọn bài, sàng lọc 1.577 bài trên IEEE Xplore theo PRISMA, đọc full-text 10 bài và đề xuất hướng fine-tune Llama 3.1 bằng QLoRA.",
+      en: "Systematic literature review (SWR302) where I was team lead: built the search string and inclusion criteria, screened 1,577 IEEE Xplore papers following PRISMA, read 10 in full text and proposed fine-tuning Llama 3.1 with QLoRA.",
+    },
+    tags: ["Research", "PRISMA", "LLM", "Information Retrieval"],
+    demo: "",
+    repo: "https://github.com/Toysideconqueror/slr-traceability-llm-vs-ir",
   },
 ];
 
@@ -135,8 +145,8 @@ export const education: { school: Text; degree: Text; period: Text }[] = [
   {
     school: { vi: "Đại học FPT TP.HCM", en: "FPT University HCMC" },
     degree: {
-      vi: "Cử nhân Kỹ thuật Phần mềm · GPA 3.5/4.0 (8.2/10) · Học bổng toàn phần 100% (2024)",
-      en: "B.Sc. in Software Engineering · GPA 3.5/4.0 (8.2/10) · 100% full-tuition scholarship (2024)",
+      vi: "Cử nhân Kỹ thuật Phần mềm · GPA 3.5/4.0 · Học bổng 100% toàn khóa học",
+      en: "B.Sc. in Software Engineering · GPA 3.5/4.0 · 100% full-tuition scholarship",
     },
     period: { vi: "09/2024 – Hiện tại", en: "09/2024 – Present" },
   },
