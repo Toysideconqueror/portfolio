@@ -51,7 +51,7 @@ export default function Hero() {
               priority
               className="mx-auto size-40 rounded-full border border-line object-cover sm:size-48"
             />
-            <pre className="font-mono text-xs leading-relaxed text-muted">
+            <pre className="font-mono text-xs leading-relaxed whitespace-pre-wrap break-words text-muted">
               {`const me = {\n  role: "${t(profile.role)}",\n  based: "${t(profile.location)}",\n};`}
             </pre>
           </div>

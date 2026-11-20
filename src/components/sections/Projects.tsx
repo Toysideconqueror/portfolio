@@ -9,7 +9,7 @@ export default function Projects() {
   const { t, ui } = useLang();
   return (
     <Section id="projects" index="03" title={ui.sections.projects}>
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-6 md:grid-cols-2">
         {projects.map((p, i) => (
           <GlassCard key={i} as="article" className="flex flex-col overflow-hidden">
             <div className="flex aspect-video items-center justify-center border-b border-line font-mono text-sm text-muted">
