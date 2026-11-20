@@ -50,6 +50,20 @@ const vi = {
   contact: {
     heading: "Cùng làm điều gì đó nhé?",
     body: "Tôi luôn sẵn lòng trò chuyện về dự án, cơ hội việc làm hoặc chỉ đơn giản là chào hỏi.",
+    formTitle: "Để lại lời nhắn",
+    name: "Tên của bạn",
+    namePlaceholder: "Không bắt buộc",
+    email: "Email của bạn",
+    emailPlaceholder: "ban@vidu.com",
+    emailHint: "Tôi sẽ trả lời về địa chỉ này.",
+    message: "Lời nhắn",
+    messagePlaceholder: "Bạn muốn trao đổi về điều gì?",
+    send: "Gửi lời nhắn",
+    sending: "Đang gửi...",
+    success: "Đã gửi! Tôi sẽ phản hồi qua email của bạn sớm nhất có thể.",
+    error: "Gửi chưa được. Bạn thử lại, hoặc gửi mail trực tiếp cho tôi nhé.",
+    orEmail: "Hoặc gửi mail trực tiếp",
+    subject: "Lời nhắn mới từ portfolio",
   },
 };
 
@@ -87,6 +101,20 @@ const en: Dict = {
   contact: {
     heading: "Let's build something together?",
     body: "I'm always happy to chat about projects, job opportunities, or just to say hi.",
+    formTitle: "Leave a message",
+    name: "Your name",
+    namePlaceholder: "Optional",
+    email: "Your email",
+    emailPlaceholder: "you@example.com",
+    emailHint: "I'll reply to this address.",
+    message: "Message",
+    messagePlaceholder: "What would you like to talk about?",
+    send: "Send message",
+    sending: "Sending...",
+    success: "Sent! I'll get back to you by email as soon as I can.",
+    error: "Couldn't send it. Please try again, or email me directly.",
+    orEmail: "Or email me directly",
+    subject: "New message from your portfolio",
   },
 };
 
