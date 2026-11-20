@@ -25,14 +25,21 @@ export default function Projects() {
                   </li>
                 ))}
               </ul>
-              <div className="mt-6 flex gap-3 text-sm font-medium">
-                <a href={p.demo} className="rounded-full bg-fg px-4 py-2 text-bg hover:opacity-80">
-                  {ui.projects.demo}
-                </a>
-                <a href={p.repo} className="rounded-full border border-line px-4 py-2 hover:border-fg">
-                  {ui.projects.source}
-                </a>
-              </div>
+              {/* Chỉ hiện nút khi có link thật */}
+              {(p.demo || p.repo) && (
+                <div className="mt-6 flex gap-3 text-sm font-medium">
+                  {p.demo && (
+                    <a href={p.demo} target="_blank" rel="noreferrer" className="rounded-full bg-fg px-4 py-2 text-bg hover:opacity-80">
+                      {ui.projects.demo}
+                    </a>
+                  )}
+                  {p.repo && (
+                    <a href={p.repo} target="_blank" rel="noreferrer" className="rounded-full border border-line px-4 py-2 hover:border-fg">
+                      {ui.projects.source}
+                    </a>
+                  )}
+                </div>
+              )}
             </div>
           </GlassCard>
         ))}

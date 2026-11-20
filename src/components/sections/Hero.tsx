@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { profile } from "@/data/content";
 import GlassCard from "../GlassCard";
 import { useLang } from "@/i18n/LanguageProvider";
@@ -41,9 +42,15 @@ export default function Hero() {
                 <span className="size-2.5 rounded-full bg-current" />
               </span>
             </div>
-            <div className="mx-auto flex size-40 items-center justify-center rounded-full border border-line text-5xl font-semibold">
-              {profile.initials}
-            </div>
+            {/* next/image: với output "export" và images.unoptimized, ảnh được dùng nguyên file trong public/ */}
+            <Image
+              src={profile.avatar}
+              alt={profile.name}
+              width={320}
+              height={320}
+              priority
+              className="mx-auto size-40 rounded-full border border-line object-cover sm:size-48"
+            />
             <pre className="font-mono text-xs leading-relaxed text-muted">
               {`const me = {\n  role: "${t(profile.role)}",\n  based: "${t(profile.location)}",\n};`}
             </pre>

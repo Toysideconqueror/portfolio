@@ -1,22 +1,26 @@
-// Toàn bộ nội dung của trang nằm ở đây. Thay nội dung mẫu bằng thông tin thật của bạn.
+// Toàn bộ nội dung của trang nằm ở đây.
 //
 // Song ngữ: chỗ nào cần dịch thì viết { vi: "...", en: "..." }.
 // Chỗ nào giống nhau ở cả hai ngôn ngữ (tên riêng, tên công nghệ, link...) thì để chuỗi thường.
 // Chữ cố định của giao diện (tên mục, nút bấm) nằm ở src/i18n/i18n.ts.
+//
+// Link để "" (chuỗi rỗng) nghĩa là "chưa có": nút/link tương ứng sẽ tự ẩn.
 
 import type { Text } from "@/i18n/i18n";
 
 export const profile = {
-  name: "Nguyễn Văn A",
+  name: "Nguyễn Dương Thiên Ý",
   initials: "TY",
-  role: { vi: "Lập trình viên phần mềm", en: "Software Developer" } as Text,
+  // Ảnh đại diện nằm trong thư mục public/. File trong public/ được phục vụ ở gốc trang, nên đường dẫn là "/avatar.jpg".
+  avatar: "/avatar.jpg",
+  role: { vi: "Full-stack Developer", en: "Full-stack Developer" } as Text,
   tagline: {
-    vi: "Xây dựng sản phẩm web gọn gàng, nhanh và dễ dùng.",
-    en: "I build clean, fast and easy-to-use web products.",
+    vi: "Biến ý tưởng thành sản phẩm chạy được, luôn bắt đầu từ góc nhìn của người dùng.",
+    en: "I turn ideas into working products, always starting from the user's point of view.",
   } as Text,
-  location: { vi: "Việt Nam", en: "Vietnam" } as Text,
-  email: "you@example.com",
-  cvUrl: "#",
+  location: { vi: "TP. Hồ Chí Minh", en: "Ho Chi Minh City" } as Text,
+  email: "Nguyenyk6@gmail.com",
+  cvUrl: "",
 };
 
 // Thứ tự các mục trên thanh điều hướng. `id` phải trùng với id của <section>.
@@ -26,76 +30,125 @@ export type SectionId = (typeof navItems)[number];
 export const about: { paragraphs: Text[]; facts: { label: Text; value: string }[] } = {
   paragraphs: [
     {
-      vi: "Đây là đoạn giới thiệu mẫu. Hãy viết vài câu về bạn: bạn là ai, bạn đang làm gì và điều gì khiến bạn hứng thú với công nghệ.",
-      en: "This is a sample introduction. Write a few sentences about yourself: who you are, what you do, and what excites you about technology.",
+      vi: "Mình là Thiên Ý, sinh viên năm 3 ngành Kỹ thuật Phần mềm tại Đại học FPT TP.HCM. Chuyên ngành của mình theo hướng C#/.NET, mình làm full-stack từ backend đến frontend, và đã tự xây nhiều dự án hoàn chỉnh với sự hỗ trợ của AI. Điểm mạnh của mình là biến một ý tưởng thành sản phẩm chạy được, và luôn đặt mình vào vị trí người dùng khi thiết kế từng tính năng.",
+      en: "I'm Thien Y, a third-year Software Engineering student at FPT University HCMC. My major follows the C#/.NET track; I work full-stack from backend to frontend, and I've built several complete projects with the help of AI tools. My strength is turning an idea into a working product, and I always put myself in the user's shoes when designing each feature.",
     },
     {
-      vi: "Đoạn thứ hai có thể nói về cách bạn làm việc, những giá trị bạn theo đuổi, hoặc mục tiêu sắp tới.",
-      en: "The second paragraph can describe how you work, the values you care about, or your next goals.",
+      vi: "Mình đam mê khám phá dữ liệu và đang nghiêm túc rèn luyện để làm chủ các kỹ năng của ngành. Ngoài code, mình từng là Rạp trưởng tại Lotte Cinema, nơi mình học cách vận hành, dẫn dắt đội ngũ và chịu trách nhiệm trước kết quả. Hiện tại mình dồn toàn bộ thời gian cho con đường phát triển phần mềm.",
+      en: "I'm passionate about exploring data and I'm working hard to master the skills of this field. Outside of code, I was a Cinema Leader at Lotte Cinema, where I learned to run operations, lead a team and own the results. Today I'm putting all of my time into my software development career.",
     },
   ],
   facts: [
-    { label: { vi: "Năm kinh nghiệm", en: "Years of experience" }, value: "2+" },
-    { label: { vi: "Dự án", en: "Projects" }, value: "10+" },
-    { label: { vi: "Chứng chỉ", en: "Certificates" }, value: "5" },
+    { label: { vi: "GPA tích lũy / 10", en: "Cumulative GPA / 10" }, value: "8.2" },
+    { label: { vi: "Học bổng toàn khóa", en: "Full-tuition scholarship" }, value: "100%" },
+    { label: { vi: "Google Cloud Skill Badges", en: "Google Cloud Skill Badges" }, value: "17" },
   ],
 };
 
 export const skills: { group: Text; items: string[] }[] = [
-  { group: { vi: "Ngôn ngữ", en: "Languages" }, items: ["TypeScript", "JavaScript", "Python", "SQL"] },
-  { group: "Frontend", items: ["React", "Next.js", "Tailwind CSS", "HTML/CSS"] },
-  { group: "Backend", items: ["Node.js", "Express", "PostgreSQL", "REST API"] },
-  { group: { vi: "Công cụ", en: "Tools" }, items: ["Git", "Docker", "Figma", "Linux"] },
+  { group: { vi: "Ngôn ngữ", en: "Languages" }, items: ["Java", "C#", "Python", "JavaScript", "SQL", "C/C++"] },
+  { group: { vi: "Nền tảng", en: "Foundations" }, items: ["OOP", "Data Structures & Algorithms", "Java Web", ".NET"] },
+  { group: "Frontend", items: ["HTML5", "CSS3", "JavaScript"] },
+  { group: { vi: "Cơ sở dữ liệu", en: "Databases" }, items: ["MySQL", "SQL Server"] },
+  { group: { vi: "Kiểm thử", en: "Testing" }, items: ["JUnit", "JaCoCo", "pytest", "coverage.py", "Postman"] },
+  { group: { vi: "Dữ liệu", en: "Data" }, items: ["pandas", "SciPy", "Google Colab"] },
+  { group: { vi: "Công cụ", en: "Tools" }, items: ["Git/GitHub", "Docker"] },
 ];
-
-const sampleDesc: Text = {
-  vi: "Mô tả ngắn về dự án: vấn đề nó giải quyết và vai trò của bạn.",
-  en: "A short description: the problem it solves and your role in it.",
-};
 
 export const projects: { title: Text; description: Text; tags: string[]; demo: string; repo: string }[] = [
-  { title: { vi: "Dự án mẫu 1", en: "Sample project 1" }, description: sampleDesc, tags: ["Next.js", "TypeScript"], demo: "#", repo: "#" },
-  { title: { vi: "Dự án mẫu 2", en: "Sample project 2" }, description: sampleDesc, tags: ["React", "Node.js"], demo: "#", repo: "#" },
-  { title: { vi: "Dự án mẫu 3", en: "Sample project 3" }, description: sampleDesc, tags: ["Python", "Data"], demo: "#", repo: "#" },
-];
-
-const samplePoints: Text[] = [
-  { vi: "Thành tựu hoặc trách nhiệm chính thứ nhất.", en: "First key achievement or responsibility." },
-  { vi: "Thành tựu hoặc trách nhiệm chính thứ hai.", en: "Second key achievement or responsibility." },
+  {
+    title: "LegacyVault",
+    description: {
+      vi: "Nền tảng quản lý di sản số theo cơ chế Dead Man's Switch: chủ sở hữu cất tài sản số vào kho mã hóa, nếu ngừng check-in thì hệ thống tự bàn giao cho người thừa kế qua các bước xác minh. Dự án nhóm môn SWP391, đã chạy thật trên Azure.",
+      en: "A digital legacy platform built on a Dead Man's Switch: owners store digital assets in an encrypted vault, and if they stop checking in, the system hands them over to beneficiaries through verified steps. Team project for SWP391, running live on Azure.",
+    },
+    tags: ["Spring Boot", "Java", "React", "MySQL", "Docker", "Azure"],
+    demo: "https://legacyvault.codes",
+    repo: "https://github.com/azerc18/legacy-vault",
+  },
+  {
+    title: { vi: "Độ tin cậy của unit test do LLM sinh", en: "Reliability of LLM-generated unit tests" },
+    description: {
+      vi: "Nghiên cứu nhóm (SWT301) so sánh 6 mô hình LLM trên 646 hàm Java/Python. Mình thiết kế pipeline 3 khâu (sinh test, chạy test và đo coverage, tổng hợp) và phân tích 3.876 kết quả bằng pandas và SciPy.",
+      en: "Team research (SWT301) comparing 6 LLMs on 646 Java/Python functions. I designed a 3-stage pipeline (generate tests, run them and measure coverage, aggregate) and analyzed 3,876 results with pandas and SciPy.",
+    },
+    tags: ["Python", "pandas", "JUnit", "pytest", "LLM"],
+    demo: "",
+    repo: "https://github.com/Toysideconqueror/llm-unit-test-reliability",
+  },
+  {
+    title: { vi: "SLR: truy vết yêu cầu – mã nguồn, LLM so với IR", en: "SLR: requirements-to-code traceability, LLM vs IR" },
+    description: {
+      vi: "Tổng quan tài liệu có hệ thống (SWR302), mình là nhóm trưởng: xây dựng search string và tiêu chí chọn bài, sàng lọc 1.577 bài trên IEEE Xplore theo PRISMA, đọc full-text 10 bài và đề xuất hướng fine-tune Llama 3.1 bằng QLoRA.",
+      en: "Systematic literature review (SWR302) where I was team lead: built the search string and inclusion criteria, screened 1,577 IEEE Xplore papers following PRISMA, read 10 in full text and proposed fine-tuning Llama 3.1 with QLoRA.",
+    },
+    tags: ["Research", "PRISMA", "LLM", "Information Retrieval"],
+    demo: "",
+    repo: "https://github.com/Toysideconqueror/slr-traceability-llm-vs-ir",
+  },
 ];
 
 export const experience: { role: Text; company: string; period: Text; points: Text[] }[] = [
   {
-    role: { vi: "Vị trí công việc", en: "Job title" },
-    company: "Company name",
-    period: { vi: "2024 – Hiện tại", en: "2024 – Present" },
-    points: samplePoints,
+    role: { vi: "Thành viên", en: "Member" },
+    company: "GDGoC FPTU HCM",
+    period: { vi: "09/2025 – Hiện tại", en: "09/2025 – Present" },
+    points: [
+      {
+        vi: "Thành viên câu lạc bộ Google Developer Groups on Campus tại Đại học FPT TP.HCM.",
+        en: "Member of Google Developer Groups on Campus at FPT University HCMC.",
+      },
+      {
+        vi: "Tham gia chương trình QuanQuanGDP thông qua CLB.",
+        en: "Joined the QuanQuanGDP program through the club.",
+      },
+    ],
   },
   {
-    role: { vi: "Thực tập sinh", en: "Intern" },
-    company: "Company name",
-    period: "2023 – 2024",
-    points: samplePoints,
+    role: { vi: "Supervisor → Rạp trưởng (Cinema Leader)", en: "Supervisor → Cinema Leader" },
+    company: "Lotte Cinema Vietnam",
+    period: "07/2026 – 10/2026",
+    points: [
+      {
+        vi: "Vào làm Supervisor tại rạp Moonlight (Thủ Đức), được lên Rạp trưởng ngay sau 2 tháng thử việc, phụ trách toàn bộ vận hành của một rạp trong chuỗi Lotte Cinema trên cả nước.",
+        en: "Joined as Supervisor at the Moonlight cinema (Thu Duc) and was promoted to Cinema Leader right after the 2-month probation, running the full operation of one cinema in Lotte Cinema's nationwide chain.",
+      },
+      {
+        vi: "Được Tổng Giám đốc ủy quyền đại diện chi nhánh làm việc với cơ quan chức năng (PCCC, an toàn thực phẩm, thuế), ký hợp đồng lao động với nhân viên và làm việc với ban quản lý tòa nhà.",
+        en: "Authorized by the General Director to represent the branch with authorities (fire safety, food safety, tax), sign labor contracts with staff and work with building management.",
+      },
+      {
+        vi: "Chủ động nghỉ việc vào cuối 10/2026 để tập trung cho việc học và sự nghiệp phát triển phần mềm.",
+        en: "Left voluntarily at the end of 10/2026 to focus on my studies and software development career.",
+      },
+    ],
   },
 ];
 
-export const education: { school: Text; degree: Text; period: string }[] = [
+export const education: { school: Text; degree: Text; period: Text }[] = [
   {
-    school: { vi: "Tên trường đại học", en: "University name" },
-    degree: { vi: "Cử nhân Công nghệ thông tin", en: "B.Sc. in Information Technology" },
-    period: "2020 – 2024",
+    school: { vi: "Đại học FPT TP.HCM", en: "FPT University HCMC" },
+    degree: {
+      vi: "Kỹ thuật Phần mềm · GPA 8.2/10 · Học bổng toàn phần 100%",
+      en: "Software Engineering · GPA 8.2/10 · 100% full-tuition scholarship",
+    },
+    period: { vi: "09/2024 – Hiện tại", en: "09/2024 – Present" },
   },
 ];
 
-// Chứng chỉ Coursera: dán link chia sẻ (coursera.org/share/...) vào `url`
+// Chứng chỉ: dán link chia sẻ vào `url`. Để "" thì thẻ hiển thị nhưng không bấm được.
 export const achievements: { title: Text; issuer: Text; year: string; url: string }[] = [
-  { title: { vi: "Tên chứng chỉ 1", en: "Certificate name 1" }, issuer: "Coursera", year: "2025", url: "#" },
-  { title: { vi: "Tên chứng chỉ 2", en: "Certificate name 2" }, issuer: "Coursera", year: "2025", url: "#" },
-  { title: { vi: "Giải thưởng / thành tích", en: "Award / achievement" }, issuer: { vi: "Đơn vị trao", en: "Issuer" }, year: "2024", url: "#" },
+  { title: { vi: "Học bổng toàn phần 100% toàn khóa", en: "100% full-tuition scholarship" }, issuer: { vi: "Đại học FPT", en: "FPT University" }, year: "2024", url: "" },
+  { title: "Google Cloud Skill Badges (17)", issuer: "Google Cloud", year: "", url: "https://www.skills.google/public_profiles/fa706d52-26e1-42c6-8d44-f658ada925d8" },
+  { title: "Web Design for Everybody", issuer: "University of Michigan · Coursera", year: "", url: "https://coursera.org/verify/specialization/1ZBIAS5SLBMH" },
+  { title: "UX Research and Design", issuer: "University of Michigan · Coursera", year: "", url: "https://coursera.org/share/7359a02162113b52ea3a223e39880ed5" },
+  { title: "Generative AI Fundamentals", issuer: "IBM · Coursera", year: "", url: "https://coursera.org/verify/specialization/S5IPGAI4CNSJ" },
+  { title: "Academic Skills for University Success", issuer: "University of Sydney · Coursera", year: "", url: "https://coursera.org/verify/specialization/FJZAM4AKEYN1" },
+  { title: "Duolingo English Test: 129", issuer: "Duolingo", year: "", url: "" },
 ];
 
 export const socials = [
   { label: "GitHub", url: "https://github.com/Toysideconqueror" },
-  { label: "LinkedIn", url: "#" },
-  { label: "Email", url: "mailto:you@example.com" },
+  { label: "LinkedIn", url: "https://www.linkedin.com/in/thieny-iter" },
+  { label: "Email", url: "mailto:Nguyenyk6@gmail.com" },
 ];
