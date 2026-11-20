@@ -13,7 +13,7 @@ export const profile = {
   initials: "TY",
   // Ảnh đại diện nằm trong thư mục public/. File trong public/ được phục vụ ở gốc trang, nên đường dẫn là "/avatar.jpg".
   avatar: "/avatar.jpg",
-  role: { vi: "Backend & Cloud Engineer", en: "Backend & Cloud Engineer" } as Text,
+  role: "Backend & Cloud Engineer" as Text,
   tagline: {
     vi: "Biến ý tưởng thành sản phẩm chạy được, luôn bắt đầu từ góc nhìn của người dùng.",
     en: "I turn ideas into working products, always starting from the user's point of view.",
@@ -39,7 +39,7 @@ export const about: { paragraphs: Text[]; facts: { label: Text; value: string }[
     },
   ],
   facts: [
-    { label: { vi: "GPA / 4.0", en: "GPA / 4.0" }, value: "3.5" },
+    { label: { vi: "GPA (thang 4.0)", en: "GPA (4.0 scale)" }, value: "3.5" },
     { label: { vi: "Học bổng toàn khóa", en: "Full-tuition scholarship" }, value: "100%" },
     { label: { vi: "Google Cloud Skill Badges", en: "Google Cloud Skill Badges" }, value: "17" },
   ],
@@ -145,8 +145,8 @@ export const education: { school: Text; degree: Text; period: Text }[] = [
   {
     school: { vi: "Đại học FPT TP.HCM", en: "FPT University HCMC" },
     degree: {
-      vi: "Cử nhân Kỹ thuật Phần mềm · GPA 3.5/4.0 · Học bổng 100% toàn khóa học",
-      en: "B.Sc. in Software Engineering · GPA 3.5/4.0 · 100% full-tuition scholarship",
+      vi: "Cử nhân Kỹ thuật Phần mềm · GPA 3.5/4.0 · Học bổng toàn khóa 100%",
+      en: "B.Sc. in Software Engineering · GPA 3.5/4.0 · 100% full-tuition scholarship for the entire program",
     },
     period: { vi: "09/2024 – Hiện tại", en: "09/2024 – Present" },
   },
@@ -154,7 +154,7 @@ export const education: { school: Text; degree: Text; period: Text }[] = [
 
 // Chứng chỉ: dán link chia sẻ vào `url`. Để "" thì thẻ hiển thị nhưng không bấm được.
 export const achievements: { title: Text; issuer: Text; year: string; url: string }[] = [
-  { title: { vi: "Học bổng toàn phần 100% toàn khóa", en: "100% full-tuition scholarship" }, issuer: { vi: "Đại học FPT", en: "FPT University" }, year: "2024", url: "" },
+  { title: { vi: "Học bổng toàn khóa 100%", en: "100% full-tuition scholarship for the entire program" }, issuer: { vi: "Đại học FPT", en: "FPT University" }, year: "", url: "" },
   { title: "Google Cloud Skill Badges (17)", issuer: "Google Cloud", year: "", url: "https://www.skills.google/public_profiles/fa706d52-26e1-42c6-8d44-f658ada925d8" },
   { title: "Web Design for Everybody", issuer: "University of Michigan · Coursera", year: "", url: "https://coursera.org/verify/specialization/1ZBIAS5SLBMH" },
   { title: "UX Research and Design", issuer: "University of Michigan · Coursera", year: "", url: "https://coursera.org/share/7359a02162113b52ea3a223e39880ed5" },
