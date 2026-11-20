@@ -1,8 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useLang } from "@/i18n/LanguageProvider";
 
 export default function ThemeToggle() {
+  const { ui } = useLang();
   const [dark, setDark] = useState(false);
   const [ready, setReady] = useState(false);
 
@@ -25,7 +27,7 @@ export default function ThemeToggle() {
       type="button"
       role="switch"
       aria-checked={dark}
-      aria-label="Chuyển chế độ sáng/tối"
+      aria-label={ui.nav.switchTheme}
       onClick={toggle}
       className="glass relative h-8 w-15 shrink-0 cursor-pointer rounded-full"
     >

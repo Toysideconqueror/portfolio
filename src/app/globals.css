@@ -17,6 +17,11 @@
   --glass-shadow: 0 10px 40px -12px rgba(0, 0, 0, 0.18);
   --blob-a: rgba(0, 0, 0, 0.16);
   --blob-b: rgba(0, 0, 0, 0.09);
+
+  /* Vòng sáng của link nav đang active */
+  --glow-fill: rgba(255, 255, 255, 0.7);
+  --glow-ring: rgba(0, 0, 0, 0.14);
+  --glow-halo: rgba(0, 0, 0, 0.16);
 }
 
 .dark {
@@ -32,6 +37,10 @@
   --glass-shadow: 0 10px 40px -12px rgba(0, 0, 0, 0.9);
   --blob-a: rgba(255, 255, 255, 0.2);
   --blob-b: rgba(255, 255, 255, 0.1);
+
+  --glow-fill: rgba(255, 255, 255, 0.08);
+  --glow-ring: rgba(255, 255, 255, 0.45);
+  --glow-halo: rgba(255, 255, 255, 0.35);
 }
 
 @theme inline {
@@ -106,6 +115,35 @@ body {
   transform: translateY(-4px);
 }
 
+/* ---------- Vòng sáng kính cho link nav đang active ----------
+   Một viên kính nhỏ nằm "trên" thanh kính lớn: nền trong mờ + blur,
+   viền sáng (ring), quầng sáng toả ra ngoài (halo) và vệt phản sáng ở mép trên. */
+.nav-glow,
+.nav-glow-static {
+  background:
+    linear-gradient(180deg, var(--glass-highlight) 0%, transparent 55%),
+    var(--glow-fill);
+  box-shadow:
+    0 0 0 1px var(--glow-ring),
+    0 0 18px 2px var(--glow-halo),
+    inset 0 1px 0 0 var(--glass-highlight),
+    inset 0 -1px 2px 0 var(--glass-edge);
+  -webkit-backdrop-filter: blur(10px) saturate(180%);
+  backdrop-filter: blur(10px) saturate(180%);
+}
+/* Bản trượt: animate left/width để vòng sáng "chạy" theo mục đang xem */
+.nav-glow {
+  transition:
+    left 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    width 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.3s ease;
+  animation: nav-glow-pulse 3.2s ease-in-out infinite;
+}
+@keyframes nav-glow-pulse {
+  0%, 100% { box-shadow: 0 0 0 1px var(--glow-ring), 0 0 14px 1px var(--glow-halo), inset 0 1px 0 0 var(--glass-highlight), inset 0 -1px 2px 0 var(--glass-edge); }
+  50% { box-shadow: 0 0 0 1px var(--glow-ring), 0 0 24px 4px var(--glow-halo), inset 0 1px 0 0 var(--glass-highlight), inset 0 -1px 2px 0 var(--glass-edge); }
+}
+
 /* Các khối mờ phía sau để kính có thứ "khúc xạ" */
 .blob {
   position: absolute;
@@ -122,5 +160,6 @@ body {
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .blob { animation: none; }
+  .nav-glow { animation: none; transition: opacity 0.3s ease; }
   .glass, .glass-hover:hover { transition: none; transform: none; }
 }

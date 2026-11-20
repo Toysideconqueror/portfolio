@@ -1,13 +1,17 @@
+"use client";
+
 import { profile, socials } from "@/data/content";
 import GlassCard from "../GlassCard";
 import Section from "../Section";
+import { useLang } from "@/i18n/LanguageProvider";
 
 export default function Contact() {
+  const { ui } = useLang();
   return (
-    <Section id="contact" index="06" title="Contact">
+    <Section id="contact" index="06" title={ui.sections.contact}>
       <GlassCard hover={false} className="p-8 text-center sm:p-16">
-        <h3 className="text-3xl font-semibold tracking-tight sm:text-5xl">Cùng làm điều gì đó nhé?</h3>
-        <p className="mx-auto mt-4 max-w-lg text-muted">Tôi luôn sẵn lòng trò chuyện về dự án, cơ hội việc làm hoặc chỉ đơn giản là chào hỏi.</p>
+        <h3 className="text-3xl font-semibold tracking-tight sm:text-5xl">{ui.contact.heading}</h3>
+        <p className="mx-auto mt-4 max-w-lg text-muted">{ui.contact.body}</p>
         <a
           href={`mailto:${profile.email}`}
           className="mt-8 inline-block rounded-full bg-fg px-8 py-4 font-medium text-bg transition-opacity hover:opacity-80"
