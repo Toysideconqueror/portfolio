@@ -15,8 +15,8 @@ export default function Skills() {
             <h3 className="mb-4 font-mono text-sm text-muted">{t(s.group)}</h3>
             <ul className="flex flex-wrap gap-2">
               {s.items.map((item) => (
-                <li key={item} className="rounded-full border border-line px-3 py-1 text-sm">
-                  {item}
+                <li key={t(item)} className="rounded-full border border-line px-3 py-1 text-sm">
+                  {t(item)}
                 </li>
               ))}
             </ul>
