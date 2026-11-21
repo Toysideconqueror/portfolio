@@ -2,6 +2,7 @@
 
 import { profile, socials } from "@/data/content";
 import GlassCard from "../GlassCard";
+import TechIcon from "../TechIcon";
 import Section from "../Section";
 import ContactForm from "../ContactForm";
 import { useLang } from "@/i18n/LanguageProvider";
@@ -23,7 +24,8 @@ export default function Contact() {
             <ul className="mt-6 flex flex-wrap gap-3">
               {socials.map((s) => (
                 <li key={s.label}>
-                  <a href={s.url} target="_blank" rel="noreferrer" className="glass glass-hover inline-block rounded-full px-5 py-2 text-sm">
+                  <a href={s.url} target="_blank" rel="noreferrer" className="glass glass-hover inline-flex items-center gap-2 rounded-full px-5 py-2 text-sm">
+                    <TechIcon name={s.label} className="size-4" />
                     {s.label}
                   </a>
                 </li>

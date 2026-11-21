@@ -2,6 +2,7 @@
 
 import { projects } from "@/data/content";
 import GlassCard from "../GlassCard";
+import TechIcon, { hasTechIcon } from "../TechIcon";
 import Section from "../Section";
 import { useLang } from "@/i18n/LanguageProvider";
 
@@ -19,9 +20,11 @@ export default function Projects() {
               <h3 className="text-xl font-semibold">{t(p.title)}</h3>
               <p className="mt-2 flex-1 text-muted">{t(p.description)}</p>
               <ul className="mt-4 flex flex-wrap gap-2">
-                {p.tags.map((t) => (
-                  <li key={t} className="font-mono text-xs text-muted">
-                    #{t}
+                {p.tags.map((tag) => (
+                  // Có logo thì logo thay cho dấu #, không có thì giữ #tag như cũ.
+                  <li key={tag} className="inline-flex items-center gap-1 font-mono text-xs text-muted">
+                    {hasTechIcon(tag) ? <TechIcon name={tag} className="size-3" /> : "#"}
+                    {tag}
                   </li>
                 ))}
               </ul>

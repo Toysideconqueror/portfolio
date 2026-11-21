@@ -2,6 +2,7 @@
 
 import { experience } from "@/data/content";
 import GlassCard from "../GlassCard";
+import TechIcon from "../TechIcon";
 import Section from "../Section";
 import { useLang } from "@/i18n/LanguageProvider";
 
@@ -16,7 +17,11 @@ export default function Experience() {
             <GlassCard className="p-6 sm:p-8">
               <div className="flex flex-wrap items-baseline justify-between gap-2">
                 <h3 className="text-xl font-semibold">
-                  {t(e.role)} <span className="text-muted">· {e.company}</span>
+                  {t(e.role)}{" "}
+                  <span className="inline-flex items-center gap-1.5 text-muted">
+                    · <TechIcon name={e.company} className="size-4" />
+                    {e.company}
+                  </span>
                 </h3>
                 <span className="font-mono text-sm text-muted">{t(e.period)}</span>
               </div>

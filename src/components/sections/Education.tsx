@@ -2,6 +2,7 @@
 
 import { achievements, education } from "@/data/content";
 import GlassCard from "../GlassCard";
+import TechIcon from "../TechIcon";
 import Section from "../Section";
 import { useLang } from "@/i18n/LanguageProvider";
 
@@ -23,7 +24,8 @@ export default function Education() {
           {achievements.map((a, i) => {
             const body = (
               <>
-                <span className="font-mono text-xs text-muted">
+                <span className="inline-flex items-center gap-1.5 font-mono text-xs text-muted">
+                  <TechIcon name={t(a.issuer)} className="size-3.5" />
                   {t(a.issuer)}
                   {a.year && ` · ${a.year}`}
                 </span>
